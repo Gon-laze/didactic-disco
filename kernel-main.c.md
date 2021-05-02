@@ -57,6 +57,10 @@ if(cpuid() == 0){
   }
 ```
 
+{% hint style="info" %}
+还记得我们在”编译与运行“一章中的输出吗？那一部分即为是本部分代码的输出结果。查阅`Makefile`也能发现qemu确实设为了3个CPU（`CPUS :=3`）。
+{% endhint %}
+
 ## 系统运行
 
 等到所有的准备工作都完成了以后，CPU将开始进入运行状态。运行的过程非常简单，只有一个函数`scheduler()`完成：
@@ -67,5 +71,7 @@ if(cpuid() == 0){
 
 `scheduler()`首先会对当前CPU的进程信息记录进行清理。主体部分运行在一个`for(;;)`循环中，保证开机过程一直运行。接着，它会持续尝试在进程槽位`proc`中寻找状态为**RUNNABLE**的条目，一旦找到便加载到CPU，并在结束后重新清理CPU进程信息，如此轮番调度完成进程的处理。
 
-对scheduler\(\)的更详细信息，参阅`kernel/proc::scheduler()`。
+对`scheduler()`的更详细信息，参阅`kernel/proc::scheduler()`。
+
+
 
