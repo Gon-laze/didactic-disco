@@ -16,7 +16,7 @@ make
 之所以`make`命令会主动执行`$K/kernel`部分，是因为该部分为首个目标，默认为该文件的终极目标。输入`make kernel/kernel`可以得到同样效果（见“终极目标”一章）。
 {% endhint %}
 
-成功运行后，将会得到以下结果：
+成功运行后，将会得到以下结果（以下采用**riscv64-unknown-elf-gcc**工具链）：
 
 ```bash
 riscv64-unknown-elf-gcc    -c -o kernel/entry.o kernel/entry.S
